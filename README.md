@@ -14,7 +14,7 @@ The goal of this project is to create an Amazon S3 bucket with server-side encry
   
 * Ability to implement and test infrastructure changes using Terraform.
 
-## Step 1: Define [provider.tf](https://github.com/aniwardhan/Create-S3-bucket-with-Encryption-and-Versioning-enabled/blob/main/provider.tf) file
+## Step 1: Define [provider.tf](https://github.com/AnithaPadmanaban04/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule-using-Terraform/blob/main/provider.tf) file
 
 ```hcl
 terraform {
@@ -32,7 +32,7 @@ provider "aws" {
 }
 ```
 
-## Step 2: [Create S3 bucket](https://github.com/aniwardhan/Create-S3-bucket-with-Encryption-and-Versioning-enabled/blob/main/main.tf)
+## Step 2: [Create S3 bucket](https://github.com/AnithaPadmanaban04/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule-using-Terraform/blob/main/main.tf)
 
 ```hcl
 # Create a S3 bucket 
@@ -45,7 +45,7 @@ Using the resource block, we've defined a new resource of type **aws_s3_bucket**
 
 Inside the aws_s3_bucket block, we've specified the name of our bucket using the bucket field. The name is reference from the variable file
 
-**[variable.tf](https://github.com/aniwardhan/Create-S3-bucket-with-Encryption-and-Versioning-enabled/blob/main/variable.tf)** 
+**[variable.tf](https://github.com/AnithaPadmanaban04/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule-using-Terraform/blob/main/variable.tf)** 
 
 ```hcl
 # declare a variable to define the region name
@@ -66,23 +66,23 @@ variable "bucket-name" {
 
 The basic configuration to create a bucket is done. Run the ```terraform init``` command to initialize the working directory and download the required providers.
 
-![image](https://github.com/aniwardhan/Create-S3-bucket-with-Encryption-and-Versioning-enabled/assets/80623694/0a27d5c9-19ef-4e03-88fb-76da0fa10778)
+![image](https://github.com/AnithaPadmanaban04/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule-using-Terraform/assets/170385807/3f783a94-8881-4f76-9a7a-fe56e745153e)
 
 Now, use ```terraform plan``` which creates an execution plan by analyzing the changes required to achieve the desired state of your infrastructure
 
-![image](https://github.com/aniwardhan/Create-S3-bucket-with-Encryption-and-Versioning-enabled/assets/80623694/4b0b738b-969d-4e8c-b15d-6be3f87da1e5)
+![image](https://github.com/AnithaPadmanaban04/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule-using-Terraform/assets/170385807/ea804e5e-4295-43e3-b0bc-20b83b748b64)
 
 Finally, use ```terraform apply ``` to apply the changes to create or update resources.
 
-![image](https://github.com/aniwardhan/Create-S3-bucket-with-Encryption-and-Versioning-enabled/assets/80623694/09211e43-8bd1-4a76-9443-815dbfda973b)
+![image](https://github.com/AnithaPadmanaban04/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule-using-Terraform/assets/170385807/5347f250-a784-4215-9efb-4d8030d0401b)
 
 S3 bucket successfully created in AWS Console
 
-![image](https://github.com/aniwardhan/Create-S3-bucket-with-Encryption-and-Versioning-enabled/assets/80623694/367fc4f8-8302-4cd7-9f81-716b75290154)
+![image](https://github.com/AnithaPadmanaban04/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule-using-Terraform/assets/170385807/b60c51be-3e53-4ad5-8a61-85c2969f7f01)
 
 ## Step 3: Configure the bucket to allow public read access 
 
-![image](https://github.com/aniwardhan/Create-S3-bucket-with-Encryption-and-Versioning-enabled/assets/80623694/32c12bb3-0ada-40d2-865d-3c8a92269d0d)
+![image](https://github.com/AnithaPadmanaban04/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule-using-Terraform/assets/170385807/1e28fbd2-2c3f-459a-b123-67a9ba0fa95a)
 
 This example explicitly disables the default S3 bucket security settings. This should be done with caution, as all bucket objects become publicly exposed.
 
@@ -116,13 +116,13 @@ resource "aws_s3_bucket_acl" "example" {
 
 Apply the changes to check the output in console
 
-![image](https://github.com/aniwardhan/Create-S3-bucket-with-Encryption-and-Versioning-enabled/assets/80623694/3eee29ee-b98f-4279-9f7b-3b137d024fe6)
+![image](https://github.com/AnithaPadmanaban04/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule-using-Terraform/assets/170385807/955a5a2c-5a17-4cce-ab01-91e33003b338)
 
-![image](https://github.com/aniwardhan/Create-S3-bucket-with-Encryption-and-Versioning-enabled/assets/80623694/0cf20edd-f848-4e9a-8217-084a51c7f0a1)
+![image](https://github.com/AnithaPadmanaban04/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule-using-Terraform/assets/170385807/3c70af7d-fa30-43d7-9ee2-36bfa1132f78)
 
 ## Step 4: Create an S3 bucket policy that allows read-only access to a specific IAM user or role
 
-create a file **[iampolicy.tf](https://github.com/aniwardhan/Create-S3-bucket-with-Encryption-and-Versioning-enabled/blob/main/iampolicy.tf)** and add the code below
+create a file **[iampolicy.tf](https://github.com/AnithaPadmanaban04/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule-using-Terraform/blob/main/iampolicy.tf)** and add the code below
 
 ```hcl
 resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
@@ -151,11 +151,12 @@ data "aws_iam_policy_document" "allow_access_from_another_account" {
 ```
 Bucket Policy added
 
-![image](https://github.com/aniwardhan/Create-S3-bucket-with-Encryption-and-Versioning-enabled/assets/80623694/9b5a26af-953d-4b95-b020-23f16bad3b5c)
+![image](https://github.com/AnithaPadmanaban04/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule-using-Terraform/assets/170385807/643f5da4-e014-453f-8a45-4bba62afb398)
+
 
 ## Step 5: Upload single file into S3 bucket
 
-The below code uploads single file into the bucket. For example we have uploaded **[index.htm](https://github.com/aniwardhan/Create-S3-bucket-with-Encryption-and-Versioning-enabled/blob/main/index.html)** file 
+The below code uploads single file into the bucket. For example we have uploaded **[index.html](https://github.com/AnithaPadmanaban04/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule-using-Terraform/blob/main/index.html)** file 
 
 ```hcl
 # Uploading index.html file to our bucket
@@ -170,12 +171,11 @@ resource "aws_s3_object" "index" {
 
 run ```terraform apply -auto-approve``` to check the output
 
-![image](https://github.com/aniwardhan/Create-S3-bucket-with-Encryption-and-Versioning-enabled/assets/80623694/6818227d-d5a3-4c6d-a1ad-a46397c1f97f)
+![image](https://github.com/AnithaPadmanaban04/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule-using-Terraform/assets/170385807/73f1e610-088a-4f29-8143-edcc6679cd05)
 
 Check the AWS Console
 
-![image](https://github.com/aniwardhan/Create-S3-bucket-with-Encryption-and-Versioning-enabled/assets/80623694/26ce4c59-6753-4115-b5d2-90291f0bd084)
-
+![image](https://github.com/AnithaPadmanaban04/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule-using-Terraform/assets/170385807/dd699d5a-4bf8-49e0-9d51-dff6d6ee65c8)
 
 ## Step 6: Upload entire project folder into S3 bucket  (upload multiple files at a time)
 
@@ -189,8 +189,7 @@ resource "null_resource" "upload-to-S3" {
   }
 }
 ```
-
-![image](https://github.com/aniwardhan/Create-S3-bucket-with-Encryption-and-Versioning-enabled/assets/80623694/768cf11f-01d8-492e-bf81-b13934da605f)
+![image](https://github.com/AnithaPadmanaban04/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule-using-Terraform/assets/170385807/91c846b4-1258-417a-8d34-e7fac7992843)
 
 
 ## Step 7: Enable versioning on the S3 bucket **Resource: aws_s3_bucket_versioning**
@@ -210,10 +209,9 @@ resource "aws_s3_bucket_versioning" "versioning_example" {
 
 Versioning Enabled
 
-![image](https://github.com/aniwardhan/Create-S3-bucket-with-Encryption-and-Versioning-enabled/assets/80623694/0f96de0f-015f-440b-ab13-5ecd3ae6ca24)
+![image](https://github.com/AnithaPadmanaban04/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule-using-Terraform/assets/170385807/36e1ce13-1028-41ef-a7ba-50f6224c355c)
 
-![image](https://github.com/aniwardhan/Create-S3-bucket-with-Encryption-and-Versioning-enabled/assets/80623694/8971cf64-a02d-4992-b3d4-d414056636a8)
-
+![image](https://github.com/AnithaPadmanaban04/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule-using-Terraform/assets/170385807/7d527363-88aa-49ec-8359-6d006d7f248a)
 
 ## Step 8: aws_s3_bucket_server_side_encryption_configuration
 
@@ -236,7 +234,8 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
 }
 ```
 
-![image](https://github.com/aniwardhan/Create-S3-bucket-with-Encryption-and-Versioning-enabled/assets/80623694/baa08d4f-d212-41e6-9e0a-c0cea0fdff39)
+![image](https://github.com/AnithaPadmanaban04/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule-using-Terraform/assets/170385807/0c504040-25dd-4134-9ae4-819e140ceb63)
+
 
 ## Step 9: Add Lifecycle Configuration
 
@@ -247,7 +246,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
 * **Expiration Actions:** Expiration Actions characterize when objects should to be consequently deleted from the bucket. Items can be designed to lapse following a specific number of days since 
     creation or since the objects last modification.
 
-  ![image](https://github.com/aniwardhan/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule/assets/80623694/d31be0eb-fc08-45f7-a15c-092da56950a9)
+![image](https://github.com/AnithaPadmanaban04/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule-using-Terraform/assets/170385807/09b59b87-e46d-4000-99ae-55c949fa79a3)
 
 
  ```hcl
@@ -278,7 +277,8 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
 }
 ```
 
-![image](https://github.com/aniwardhan/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule/assets/80623694/93658909-9921-44c7-b259-8dae8ea7aec1)
+![image](https://github.com/AnithaPadmanaban04/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule-using-Terraform/assets/170385807/be7b4550-db4d-41ce-810a-0d90e111dea2)
+
 
 ## Step 9: Clean the resources
 
@@ -286,7 +286,7 @@ Apply ```terraform destroy -auto-approve``` to clean all the resources created
 
 When trying to delete a bucket with versioning enabled, you get the following error
 
-![image](https://github.com/aniwardhan/Create-S3-bucket-with-Encryption-and-Versioning-enabled/assets/80623694/29ea1686-5557-4338-9f2d-0347ea1b00a1)
+![image](https://github.com/AnithaPadmanaban04/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule-using-Terraform/assets/170385807/176f4a88-41dc-4cdd-a2c0-74cb3f5bff31)
 
 Fix this with the below code
 
@@ -302,4 +302,5 @@ resource "aws_s3_bucket" "my-bucket" {
 }
 ```
 
-![image](https://github.com/aniwardhan/Create-S3-bucket-with-Encryption-and-Versioning-enabled/assets/80623694/613fef45-4fd3-4870-882c-1426fad246e5)
+![image](https://github.com/AnithaPadmanaban04/S3-bucket-with-Encryption-Versioning-and-Lifecycle-Rule-using-Terraform/assets/170385807/128f5780-fd1a-4298-9717-3eb591af1cd6)
+
