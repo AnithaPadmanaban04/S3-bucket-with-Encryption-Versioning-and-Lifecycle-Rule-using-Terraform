@@ -27,11 +27,13 @@ The goal of this project is to create an Amazon S3 bucket with server-side encry
 
 ## Detailed Guide
 
-For a comprehensive walkthrough of the project, please refer to the detailed guide available on [Medium](https://medium.com/me/stories/public).
+For a comprehensive walkthrough of the project, please refer to the detailed guide available on [![Medium](https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/me/stories/public).
 
 ## Connect with Me
 
 GitHub: [GitHub Profile](https://github.com/AnithaPadmanaban04)
 
-LinkedIn: [LinkedIn Profile](www.linkedin.com/in/anitha-padmanaban-7b2665264)
+LinkedIn: [Linkedin](https://www.linkedin.com/in/anitha-padmanaban-7b2665264/)
+
+
 
